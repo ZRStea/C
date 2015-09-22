@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 int num;
-struct student
-{
+struct student{
 	char name[200];
 	int final;
 	int commit;
