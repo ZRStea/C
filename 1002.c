@@ -80,7 +80,7 @@ int main()
 	    scanf("%s %d %d %c %c %d", st.name, &st.final, &st.commit, &st.cadre, &st.west, &st.paper);
 	    score = sum(st);
 	    sumscore = sumscore + score;
-	    if (score>=bestscore)
+	    if (score>bestscore)
 	    	{
 	    		bestscore = score;
 	    		strcpy(bestname,st.name);
