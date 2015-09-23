@@ -77,7 +77,7 @@ int main()
 	for(;num>0;--num)
 	{
 	    struct student st;
-	    scanf("%s %d %d %s %s %d", st.name, &st.final, &st.commit, &st.cadre, &st.west, &st.paper);
+	    scanf("%s %d %d %c %c %d", st.name, &st.final, &st.commit, &st.cadre, &st.west, &st.paper);
 	    score = sum(st);
 	    sumscore = sumscore + score;
 	    if (score>=bestscore)
