@@ -50,7 +50,7 @@ while True:
         print 
         print "STOP"
         print
-        print "inputs",
+        print "inputs"
         print '"' + inputs + '"'
         print
         print "outputA"
