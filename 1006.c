@@ -22,7 +22,7 @@ int main() {
         // printf("%d",isbn[i]);
     }
     sum = sum % 11;
-    if (isbn[9] == sum || (sum == 10 && isbn[9] == 56)) {
+    if (isbn[9] == sum || (sum == 10 && num[12] == 'X')) {
         printf("Right\n");
     }
     else {
