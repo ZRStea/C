@@ -17,7 +17,7 @@ int main() {
         to_digit(isbn[10]) * 9 ) % 11;
     char checksum_char = checksum == 10 ? 'X' : (char)(checksum + '0');
     if (isbn[12] == checksum_char) {
-        puts("Right\n");
+        puts("Right");
     } else {
         isbn[12] = checksum_char;
         puts(isbn);
