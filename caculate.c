@@ -11,42 +11,42 @@ int pl()
     {    }
     else
     {
-        int temp;
-        temp = length2;
+        int t;
+        t = length2;
         length2 = length1;
-        length1 = temp;
+        length1 = t;
     }
     int temp,n = 0;
     for (; length1>=0; )
     {
         if (length2 >= 0)
         {
-            temp = (num1[length1] + num2[length2] + n) - 192;
+            temp = (num1[length1-1] + num2[length2-1] + n) - 96;
             if (temp < 10)
             {
-                plus[length1] = (char) (temp + 64);
+                plus[length1] = (char) (temp + 48);
                 n = 0;
             }
             else
             {
                 n = 1;
-                plus[length1] = (char) (temp + 54);
+                plus[length1] = (char) (temp + 38);
             }
         --length2;
         --length1;
         }
         else
         {
-            temp = (num1[length1] + '0' + n) - 192;
+            temp = (num1[length1-1] + '0' + n) - 96;
             if (temp < 10)
             {
-                plus[length1] = (char) (temp + 64);
+                plus[length1] = (char) (temp + 48);
                 n = 0;
             }
             else
             {
                 n = 1;
-                plus[length1] = (char) (temp + 54);
+                plus[length1] = (char) (temp + 38);
             }
         --length1;
         }
@@ -62,10 +62,9 @@ int main()
     strcpy(num2,"1203");
     pl();
     printf("%s\n",plus);
-    puts(plus);
     puts(num1);
     puts(num2);
-    puts(length2);
-    puts(length1);
+    printf("%d\n",length2);
+    printf("%d\n",length1);
     return 0;
 }
