@@ -13,10 +13,14 @@ int pl()
     {    }
     else
     {
+        char numt[2000];
         int t;
         t = length2;
         length2 = length1;
         length1 = t;
+        strcpy(numt,num2);
+        strcpy(num2,num1);
+        strcpy(num1,numt);
     }
     int temp,n = 0;
     for (; length1>=1; )
