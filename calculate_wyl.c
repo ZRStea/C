@@ -12,7 +12,7 @@ void strrev(char * ptr) {
     char * pL=ptr;
     char * pR=ptr+len-1;
     while (pL < pR) {
-        *pL ^= *pR ^= *pL ^= *pR;
+        *pL ^= *pR ^= *pL ^= *pR;  /* variable swapping */
         pL++, pR--;
     }
 }
@@ -20,10 +20,10 @@ void strrev(char * ptr) {
 int main() {
     char str[LENGTH];
     /* reading num A from keyboard */
-    scanf("%s", str);
-    strrev(str);
+    scanf("%s", str);  /* (index 0) | '1' | '2' | '3' | '\0' | */
+    strrev(str);  /* (index 0) | '3' | '2' | '1' | '\0' | */
     for (int i=0; str[i]!='\0'; ++i) {
-        a[i] = str[i] - '0';
+        a[i] = str[i] - '0';  /* array a: (index 0) | 3 | 2 | 1 | */
     }
     /* reading num B from keyboard */
     scanf("%s", str);

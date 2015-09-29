@@ -6,7 +6,7 @@ import string
 import random
 from subprocess import Popen, PIPE
 
-sourceA = "calculate_wyl.c"
+sourceA = "calculate.c"
 
 def generateTestCase():
     a = random.randint(0, 2**2048)
@@ -23,7 +23,7 @@ while True:
     inputs = str(testcase[0]) + '\n' + str(testcase[1])
     print inputs
 
-    answer = str(testcase[0] + testcase[1])
+    answer = str(testcase[0] - testcase[1]) + '\n'
 
     print "Run sourceA"
     p = Popen(["./" + sourceA + ".out"], stdin=PIPE, stdout=PIPE)
