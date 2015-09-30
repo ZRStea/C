@@ -1,11 +1,11 @@
 #include <stdio.h>
 int prime(num)
 {
-    if (num==0 || num == 1)
-        {
-            return 0;
-        }
-    for (int i = 2; i < num; ++i)
+    if (num == 0 || num == 1)
+    {
+        return 0;
+    }
+    for (int i=2; i<num; ++i)
     {
         if (num % i == 0)
         {
@@ -25,7 +25,7 @@ int main()
     {
         scanf("%d", &num);
         // printf("%d\n", num);
-        for (int i =2; i<=num; ++i)
+        for (int i=2; i<=num; ++i)
         {
             if (num % i == 0 && prime(i) == 1 && i >= maxprime)
             {
@@ -35,4 +35,6 @@ int main()
         }
     }
     printf("%d\n", max);
+    return 0;
 }
+
