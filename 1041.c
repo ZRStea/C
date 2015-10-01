@@ -6,14 +6,6 @@ char rlt[2000];
 char temp[2000];
 char expression[2000];
 char status;
-int delte(char num[2000])
-{
-    for (int i = 0; i <= strlen(num); ++i)
-    {
-        num[i] = 0;
-    }
-    return 0;
-}
 int pl()
 {
     int length1;
@@ -70,6 +62,17 @@ int pl()
             --length1;
         }
     }
+    if (n == 1)
+    {
+        rlt[0] = '1';
+    }
+    else
+    {
+        for(int i=0; i<=strlen(rlt)+1; ++i)
+        {
+            rlt[i] = rlt[i+1]; 
+        }
+    }
     return 0;
 }
 
@@ -79,20 +82,20 @@ int minus()
     int length2;
     length2 = strlen(num2);
     length1 = strlen(num1);
-    if (length1 >= length2)
-    {
-    }
-    else
-    {
-        char numt[2000];
-        int t;
-        t = length2;
-        length2 = length1;
-        length1 = t;
-        strcpy(numt, num2);
-        strcpy(num2, num1);
-        strcpy(num1, numt);
-    }
+    // if (length1 >= length2)
+    // {
+    // }
+    // else
+    // {
+    //     char numt[2000];
+    //     int t;
+    //     t = length2;
+    //     length2 = length1;
+    //     length1 = t;
+    //     strcpy(numt, num2);
+    //     strcpy(num2, num1);
+    //     strcpy(num1, numt);
+    // }
     int temp,n = 0;
     for (; length1>=1; )
     {
@@ -150,27 +153,28 @@ int minus()
 int main()
 {
     scanf("%s", expression);
-    int i= 0;
-    for (int t = 0; ; ++i)
+    int i = 0;
+    for (int t = 0; ; ++t)  //读取num1
     {
-        // printf("t=%d\ti=%d\n", t, i);
-        if (expression[i] == '+' || expression[i] == '-')
+        if (expression[i] == '+' || expression[i] == '-' || expression[i] == 0)
         {
-            status = expression[i];
             break;
         }
         num1[t] = expression[i];
-        ++t;
+        ++i;
+        // printf("a %d\n",i);
     }
+    status = expression[i];
     ++i;
-    for (int t = 0; ; ++i)
+    for (int t = 0; ; ++t)  //读取num2
     {
-        if (expression[i] == '+' || expression[i] == '-')
+        if (expression[i] == '+' || expression[i] == '-' || expression[i] == 0)
         {
             break;
         }
         num2[t] = expression[i];
-        ++t;
+        ++i;
+        // printf("b %d\n",i);
     }
     if (status == '+')
     {
@@ -180,41 +184,48 @@ int main()
     {
         minus();
     }
-    status = expression[i];
-    ++i;
     for (; ; )
     {
-        delte(num1);
-        strcpy(num1, rlt);
-        delte(rlt);
-        delte(num2);
-        for (int t = 0; i < strlen(expression); ++i) 
-        {
-            if (expression[i] == '+' || expression[i] == '-')
-            {
-                if (status == '+')
-                {
-                    pl();
-                }
-                if (status == '-')
-                {
-                    minus();
-                }
-                status = expression[i];
-                break;
-            }
-            num2[t] = expression[i];
-        }
-        if (i >= strlen(expression))
+        if (expression[i] == '\0')
         {
             break;
         }
-
+        status = expression[i];
+        ++i;
+        // printf("c %d\n",i);
+        strcpy(num1, rlt);
+        for (int t = 0; ; ++t)
+        {
+            if (expression[i] == '+' || expression[i] == '-' || expression[i] == 0)
+            {
+                break;
+            }
+            temp[t] = expression[i];
+            ++i;
+            // printf("d %d\n",i);
+        }
+        strcpy(num2, temp);
+        if (status == '+')
+        {
+            pl();
+        }
+        if (status == '-')
+        {
+            minus();
+        }
     }
+
     printf("%s\n", rlt);
-    return 0;
 
 }
+
+
+
+
+
+
+
+
 
 
 
