@@ -151,16 +151,24 @@ int main()
 {
     scanf("%s", expression);
     int i= 0;
-    for (int t = 0; expression[i] != '+' || expression[i] != '-'; ++i)
+    for (int t = 0; ; ++i)
     {
-        printf("t=%d\ti=%d\n", t, i);
+        // printf("t=%d\ti=%d\n", t, i);
+        if (expression[i] == '+' || expression[i] == '-')
+        {
+            status = expression[i];
+            break;
+        }
         num1[t] = expression[i];
         ++t;
     }
-    status = expression[i];
     ++i;
-    for (int t = 0; expression[i] != '+' || expression[i] != '-'; ++i)
+    for (int t = 0; ; ++i)
     {
+        if (expression[i] == '+' || expression[i] == '-')
+        {
+            break;
+        }
         num2[t] = expression[i];
         ++t;
     }
@@ -180,7 +188,7 @@ int main()
         strcpy(num1, rlt);
         delte(rlt);
         delte(num2);
-        for (int t = 0; i < strlen(expression); ++i)
+        for (int t = 0; i < strlen(expression); ++i) 
         {
             if (expression[i] == '+' || expression[i] == '-')
             {
@@ -197,7 +205,7 @@ int main()
             }
             num2[t] = expression[i];
         }
-        if (status != '+' || status != '-')
+        if (i >= strlen(expression))
         {
             break;
         }
