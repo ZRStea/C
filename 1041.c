@@ -154,6 +154,7 @@ int main()
     int i= 0;
     for (int t = 0; expression[i] != '+' || expression[i] != '-'; ++i)
     {
+        printf("t=%d\ti=%d\n", t, i);
         num1[t] = expression[i];
         ++t;
     }
