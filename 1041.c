@@ -5,14 +5,14 @@ char num2[2000];
 char rlt[2000];
 char temp[2000];
 char expression[2000];
-int delte(char num[])
+char status;
+int delte(char num[2000])
 {
     for (int i = 0; i <= strlen(num); ++i)
     {
         num[i] = 0;
     }
     return 0;
-
 }
 int pl()
 {
@@ -149,7 +149,6 @@ int minus()
 
 int main()
 {
-    char status;
     scanf("%s", expression);
     int i= 0;
     for (int t = 0; expression[i] != '+' || expression[i] != '-'; ++i)
