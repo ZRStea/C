@@ -6,16 +6,16 @@ int main()
     int mom = 0;
     int t = 0;
     int i = 0;
-    FILE *fp;
-    FILE *wt;
-    fp = fopen("save.in", "r");
-    wt = fopen("save.out", "w+");
-    fscanf(fp, "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", &month[0], &month[1], &month[2], &month[3], &month[4], &month[5], &month[6], &month[7], &month[8], &month[9], &month[10], &month[11]);
+    // FILE *fp;
+    // FILE *wt;
+    // fp = fopen("save.in", "r");
+    // wt = fopen("save.out", "w+");
+    scanf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", &month[0], &month[1], &month[2], &month[3], &month[4], &month[5], &month[6], &month[7], &month[8], &month[9], &month[10], &month[11]);
     // for(int i = 0; i<=11; ++i)
     // {
     //     printf("%d\n", month[i]);
     // }
-    fclose(fp);
+    // fclose(fp);
     for (; i<=11; ++i)
     {
         acc += 300;
@@ -32,7 +32,7 @@ int main()
         {
             if (acc - month[i] < 0)
             {
-                fprintf(wt, "-%d", (i+1));
+                // fprintf(wt, "-%d", (i+1));
                 printf("-%d\n", (i+1));
                 break;
             }
@@ -41,9 +41,9 @@ int main()
     }
     if (i == 12)
     {
-        fprintf(wt, "%d\n", (mom*120/100+acc));
+        // fprintf(wt, "%d\n", (mom*120/100+acc));
         printf("%d\n", (mom*120/100+acc));
     }
-    fclose(wt);
+    // fclose(wt);
     return 0;
 }
