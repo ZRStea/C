@@ -8,6 +8,7 @@ char expression[2000];
 char status;
 int pl()
 {
+	strcpy(rlt,"0");
     int length1;
     int length2;
     length2 = strlen(num2);
@@ -78,6 +79,7 @@ int pl()
 
 int minus()
 {
+	strcpy(rlt,"0");
     int length1;
     int length2;
     length2 = strlen(num2);
@@ -156,7 +158,7 @@ int main()
     int i = 0;
     for (int t = 0; ; ++t)  //读取num1
     {
-        if (expression[i] == '+' || expression[i] == '-' || expression[i] == 0)
+        if (expression[i] == '+' || expression[i] == '-' || expression[i] == '\0')
         {
             break;
         }
@@ -168,7 +170,7 @@ int main()
     ++i;
     for (int t = 0; ; ++t)  //读取num2
     {
-        if (expression[i] == '+' || expression[i] == '-' || expression[i] == 0)
+        if (expression[i] == '+' || expression[i] == '-' || expression[i] == '\0')
         {
             break;
         }
@@ -196,7 +198,7 @@ int main()
         strcpy(num1, rlt);
         for (int t = 0; ; ++t)
         {
-            if (expression[i] == '+' || expression[i] == '-' || expression[i] == 0)
+            if (expression[i] == '+' || expression[i] == '-' || expression[i] == '\0')
             {
                 break;
             }
@@ -214,27 +216,11 @@ int main()
             minus();
         }
     }
+    if (i == strlen(expression) + 1)
+    {
+    	strcpy(rlt, expression);
+    }
 
     printf("%s\n", rlt);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
