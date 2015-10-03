@@ -4,8 +4,8 @@
 int main()
 {
     int i = 0;
-    int num[1000];
-    char name[1000][1000];
+    int num[10000];
+    char name[10000][100];
     int total = 0;
     scanf("%d\n", &total);
     for (; i < total; ++i)
@@ -48,18 +48,17 @@ int main()
     //     printf("%s\n", name[t]);
     // }
     char temp[1000];//冒泡排序name
-    for (int i = 0; ; ++i)
+    for (; ; )
     {
         int times = 0;
-        for (int t = 0; name[i][t] != '\0' && name[i+1][t] != '\0'; ++t)
+        for (int i = 0; i < total -1; ++i)
         {
-            if (name[i][t] > name[i+1][t])
+            if (strcmp(name[i],name[i+1]) > 0)
             {
                 strcpy(temp, name[i]);
                 strcpy(name[i], name[i+1]);
                 strcpy(name[i+1], temp);
                 ++times;
-                break;
             }
         }
         if (times == 0)
@@ -69,7 +68,7 @@ int main()
     }
     for (int t = 0; t < total; ++t)
     {
-        printf("%s %d", name[t],num[t]);
+        printf("%s %d\n", name[t],num[t]);
     }
 
 
