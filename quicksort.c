@@ -33,7 +33,7 @@ void quicksort(int num[], int l, int h)
                 t = i;
             }
         }
-        for (; j >= l ; --j)
+        for (j = t; j >= l ; --j)
         {
             if (num[j] > temp)
             {
@@ -41,19 +41,19 @@ void quicksort(int num[], int l, int h)
                 t = j;
             }
         }
+        quicksort(num, l, t - 1);
+        quicksort(num, t + 1, h);
     }
     /* 1 下面这两行当 l < h 不成立的时候也会执行 */
     /* 2 变量 j 而不是变量 t ? */
-    quicksort(num, l, j - 1);
-    quicksort(num, j + 1, h);
 }
 
 int main()
 {
-    int num[10] = {2,3,4,5,6,7,8,9,1,0};
-    quicksort(num, 0, 9);
+    int num[7] = {5,6,2,3,7,4,1};
+    quicksort(num, 0, 6);
 
-    for (int i = 0;i<=9;++i){
+    for (int i = 0;i<=6;++i){
         printf("%d", num[i]);
     }
     return 0;
