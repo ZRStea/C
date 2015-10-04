@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-void sawp(int *a, int *b)
+void swap(int *a, int *b)
 {
     int t;
     t = *a;
@@ -42,7 +42,8 @@ int main()
     int num[10] = {2,3,4,5,6,7,8,9,1,0};
     quicksort(num, 0, 9);
 
-for (int i = 0;i<=9;++i){
-    printf("%d", num[i]);
-}
+    for (int i = 0;i<=9;++i){
+        printf("%d", num[i]);
+    }
+    return 0;
 }
