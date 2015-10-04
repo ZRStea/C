@@ -103,7 +103,7 @@ int main()
     //         break;
     //     }
     // }
-    quicksort(name, 0, total);
+    quicksort(name, 0, total - 1);
 
 
     for (int t = 0; t < total; ++t)
