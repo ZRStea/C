@@ -2,39 +2,39 @@
 #include <string.h>
 void sawp(char str1[], char str2[])
 {
-    char temp[10000];
+    char temp[100];
     strcpy(temp, str1);
     strcpy(str1, str2);
     strcpy(str2, temp);
 }
-void quicksort(char num[], int l, int h)
+void quicksort(char num[][100], int l, int h)
 {
-    int i = l,j = h;
+    int i = l + 1;
+    int j = h;
     int t = l;
     if (l < h)
     {
-        char temp[10000];
-        strcpy(temp, num[i]);
-        for (; i < j; ++i)
+        char temp[100];
+        strcpy(temp, num[l]);
+        for (; i <= h; ++i)
         {
-            if (strcmp(num[i], temp) > 0)
+            if (strcmp(num[i], temp) < 0)
             {
                 sawp(num[t], num[i]);
                 t = i;
             }
         }
-        t = i + 1;
-        for (; i < j; --j)
+        for (; j >= l ; --j)
         {
-            if (strcmp(num[j], temp) < 0)
+            if (strcmp(num[j], temp) > 0)
             {
                 sawp(num[t], num[j]);
-                t = i;
+                t = j;
             }
         }
     }
-    quicksort(num, l, i -1);
-    quicksort(num, i + 1, h);
+    quicksort(num, l, j - 1);
+    quicksort(num, j + 1, h);
 }
 
 
@@ -103,7 +103,7 @@ int main()
     //         break;
     //     }
     // }
-    // quicksort(name, 0, total);
+    quicksort(name, 0, total);
 
 
     for (int t = 0; t < total; ++t)
