@@ -1,5 +1,42 @@
 #include <stdio.h>
 #include <string.h>
+void sawp(char str1[], char str2[])
+{
+    char temp[10000];
+    strcpy(temp, str1);
+    strcpy(str1, str2);
+    strcpy(str2, temp);
+}
+void quicksort(char num[], int l, int h)
+{
+    int i = l,j = h;
+    int t = l;
+    if (l < h)
+    {
+        char temp[10000];
+        strcpy(temp, num[i]);
+        for (; i < j; ++i)
+        {
+            if (strcmp(num[i], temp) > 0)
+            {
+                sawp(num[t], num[i]);
+                t = i;
+            }
+        }
+        t = i + 1;
+        for (; i < j; --j)
+        {
+            if (strcmp(num[j], temp) < 0)
+            {
+                sawp(num[t], num[j]);
+                t = i;
+            }
+        }
+    }
+    quicksort(num, l, i -1);
+    quicksort(num, i + 1, h);
+}
+
 
 int main()
 {
@@ -47,25 +84,28 @@ int main()
     // {
     //     printf("%s\n", name[t]);
     // }
-    char temp[1000];//冒泡排序name
-    for (; ; )
-    {
-        int times = 0;
-        for (int i = 0; i < total -1; ++i)
-        {
-            if (strcmp(name[i],name[i+1]) > 0)
-            {
-                strcpy(temp, name[i]);
-                strcpy(name[i], name[i+1]);
-                strcpy(name[i+1], temp);
-                ++times;
-            }
-        }
-        if (times == 0)
-        {
-            break;
-        }
-    }
+    // char temp[1000];//冒泡排序name
+    // for (; ; )
+    // {
+    //     int times = 0;
+    //     for (int i = 0; i < total -1; ++i)
+    //     {
+    //         if (strcmp(name[i],name[i+1]) > 0)
+    //         {
+    //             strcpy(temp, name[i]);
+    //             strcpy(name[i], name[i+1]);
+    //             strcpy(name[i+1], temp);
+    //             ++times;
+    //         }
+    //     }
+    //     if (times == 0)
+    //     {
+    //         break;
+    //     }
+    // }
+    // quicksort(name, 0, total);
+
+
     for (int t = 0; t < total; ++t)
     {
         printf("%s %d\n", name[t],num[t]);
@@ -73,8 +113,6 @@ int main()
 
 
 }
-
-
 
 
 
