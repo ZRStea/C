@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void quicksort(int num[], int left, int right)
+void quicksort(int num[], int left, int right)//这个算法忘记考虑怎么在任何情况下都把基准放到正确位置 修补成本太高 废弃
 {
     int temp[right - left + 1];
     int base = num[left];
@@ -36,10 +36,10 @@ void quicksort(int num[], int left, int right)
 }
 int main()
 {
-    int num[12] = {5,6,2,9,100,110,1,3,0,0,8,10};
-    quicksort(num, 0, 11);
+    int num[10] = {5,6,2,9,100,110,1,1,2,3,4,5};
+    quicksort(num, 0, 9);
 
-    for (int i = 0;i<=11;++i){
+    for (int i = 0;i<=9;++i){
         printf("%d\n", num[i]);
     }
     return 0;
