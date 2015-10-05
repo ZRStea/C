@@ -1,40 +1,31 @@
 #include <stdio.h>
 #include <string.h>
-void sawp(char str1[], char str2[])
+void swap(char str1[], char str2[])
 {
-    char temp[100];
+    char temp[500];
     strcpy(temp, str1);
     strcpy(str1, str2);
     strcpy(str2, temp);
 }
-void quicksort(char num[][100], int l, int h)
+void quicksort(char name[][500], int left, int right)
 {
-    int i = l + 1;
-    int j = h;
-    int t = l;
-    if (l < h)
+    int i = left;
+    int j = right;
+    char base[500];
+    strcpy(base, name[left]);
+    if (left < right)
     {
-        char temp[100];
-        strcpy(temp, num[l]);
-        for (; i <= h; ++i)
+        for(;i < j;)
         {
-            if (strcmp(num[i], temp) < 0)
-            {
-                sawp(num[t], num[i]);
-                t = i;
-            }
+        for (; i < j && strcmp(name[j], base) >= 0;--j){}
+        for (; i < j && strcmp(name[i], base) <= 0;++i){}
+        swap(name[i], name[j]);
         }
-        for (; j >= l ; --j)
-        {
-            if (strcmp(num[j], temp) > 0)
-            {
-                sawp(num[t], num[j]);
-                t = j;
-            }
-        }
+        printf("%i=d j=%d",i,j);
     }
-    quicksort(num, l, j - 1);
-    quicksort(num, j + 1, h);
+    swap(name[left], name[i]);
+    quicksort(name, left, i - 1);
+    quicksort(name, i + 1, right);
 }
 
 
@@ -42,7 +33,7 @@ int main()
 {
     int i = 0;
     int num[10000];
-    char name[10000][100];
+    char name[10000][500];
     int total = 0;
     scanf("%d\n", &total);
     for (; i < total; ++i)

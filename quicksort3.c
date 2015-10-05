@@ -19,7 +19,7 @@ void quicksort(int num[], int left, int right)//left right均为num[]中坐标 �
         for(; i < j && num[i] <= base; ++i){}//从前向后搜索大于base的元素
         swap(&num[j], &num[i]);//交换两个值
     }
-    swap(&num[left], &num[j]);//填入最后一个坑
+    swap(&num[left], &num[i]);//填入最后一个坑
     quicksort(num, left, i - 1);//分治递归
     quicksort(num, i + 1, right);       
     }
