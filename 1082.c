@@ -19,14 +19,16 @@ void quicksort(char name[][500], int left, int right)
     {
         for(;i < j;)
         {
-        for (; i < j && strcmp(name[j], base) >= 0;--j){}
-        for (; i < j && strcmp(name[i], base) <= 0;++i){}
-        swap(name[i], name[j]);
+            for (; i < j && (strcmp(name[j], base) >= 0);--j){}
+            for (; i < j && (strcmp(name[i], base) <= 0);++i){}
+            if (i != j){swap(name[i], name[j]);}
         }
-        printf("%i=d j=%d",i,j);
     }
-    swap(name[left], name[i]);
-    quicksort(name, left, i - 1);
+    if (left != i)
+    {
+        swap(name[left], name[i]);        
+    }
+    quicksort(name, left, i);
     quicksort(name, i + 1, right);
 }
 
