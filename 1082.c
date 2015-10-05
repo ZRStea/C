@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 void swap(char str1[], char str2[])
 {
+    assert(str1 != str2);  /* （假装）我觉得这里绝对不会出现两个相同的字符串 */
     char temp[500];
     strcpy(temp, str1);
     strcpy(str1, str2);
